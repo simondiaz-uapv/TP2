@@ -15,6 +15,10 @@ int main() {
             std::cout << "Erreur : la note doit être comprise entre 0 et 20 !\n";
             continue;
         }
+        if (nbNotes >= 5) {
+            std::cout << "Erreur : vous avez déjà saisi 5 notes !\n";
+            continue;
+        }
         notes[nbNotes] = note;
         nbNotes++;
     }

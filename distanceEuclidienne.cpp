@@ -11,12 +11,19 @@ int main(int argc, char** argv) {
         return 1;
     }
 
-    double xa = std::stod(argv[1]);
-    double ya = std::stod(argv[2]);
-    double za = std::stod(argv[3]);
-    double xb = std::stod(argv[4]);
-    double yb = std::stod(argv[5]);
-    double zb = std::stod(argv[6]);
+    double xa, ya, za, xb, yb, zb;
+
+    try {
+        xa = std::stod(argv[1]);
+        ya = std::stod(argv[2]);
+        za = std::stod(argv[3]);
+        xb = std::stod(argv[4]);
+        yb = std::stod(argv[5]);
+        zb = std::stod(argv[6]);
+    } catch (const std::invalid_argument& ia) {
+        std::cerr << "Erreur : les arguments doivent  etre des nombres" << std::endl;
+        return 1;
+    }
 
     double dist = distance(xa, ya, za, xb, yb, zb);
     std::cout << "La distance entre les points A et B est : " << dist << std::endl;
